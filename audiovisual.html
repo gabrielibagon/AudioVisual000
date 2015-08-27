@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+	<head>
+
+		<title>Audio Visual</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				overflow:hidden; 
+			}
+
+			#welcome {
+				height:auto;
+				font-size:20px;
+				position: absolute;
+  	  	left: 50%;
+  	  	margin-left: -100px;
+  	  	margin-top:-150px;
+    		top: 50%;
+    		overflow:hidden;
+			}
+			.fit {
+				max-height: 100%;
+			}
+			.center {
+				display: block;
+				margin: auto;
+
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div id = "welcome">
+			<p><i>A constant examination</i></p>
+		</div>
+		<div id = "video" style="display:none">
+			<iframe src=""></iframe></div>
+		<div id="image">
+			<img class="center fit" src="">
+		</div>
+		<script src="http://code.jquery.com/jquery-latest.js"></script> 
+		<script>
+
+			$(document).ready(function() {
+
+			
+				function set_body_height() {
+
+					$("div").height($(window).height());
+				};
+
+				$(window).bind("resize", set_body_height);
+				set_body_height();
+			});
+
+			var array = [
+			"https://www.youtube.com/embed/hSJZc1YnJEs?autoplay=1",
+			"https://www.youtube.com/embed/X24y8HbL93Q?autoplay=1",
+			"https://www.youtube.com/embed/fmFZUAsJqv4?autoplay=1",
+			"https://www.youtube.com/embed/xLwzhx9SUMM?autoplay=1",
+			"https://www.youtube.com/embed/MfUdcVVpHoU?autoplay=1",
+			];
+
+			function randomNum(){
+				var randomNum = Math.floor((Math.random() * 5) + 1);
+				return randomNum;
+			};
+
+			
+	
+
+			$("body").click(function(){
+				var number = randomNum();
+				$("#welcome").hide();
+				$("img", "#image").attr("src", "Images/00" + number+ ".jpg");
+				var elem = document.getElementById("#image");
+					elem.requestFullscreen();
+  					elem.msRequestFullscreen();
+  					elem.webkitRequestFullscreen();
+				// $("iframe", "#video").attr("src", "https://www.youtube.com/embed/Lbt9DDolcag?autoplay=1");
+				$("#video iframe").remove();
+				$('<iframe></iframe>').attr("src", array[number - 1]).appendTo("#video");
+			});
+
+
+			
+		</script>
+	</body>
+</html>
