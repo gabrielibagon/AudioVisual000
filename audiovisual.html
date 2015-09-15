@@ -56,15 +56,24 @@
 			});
 
 			var array = [
+			//[0] Morton Feldman - Rothko Chapel (001)
 			"https://www.youtube.com/embed/hSJZc1YnJEs?autoplay=1",
+			//[1] Ornette Coleman - Free Jazz (002)
 			"https://www.youtube.com/embed/X24y8HbL93Q?autoplay=1",
+			//[2] Karlheinz Stockhausen - Gesang der Junglinge (003)
 			"https://www.youtube.com/embed/fmFZUAsJqv4?autoplay=1",
+			//[3] Anthony Braxton - Opus 51 (004)
 			"https://www.youtube.com/embed/xLwzhx9SUMM?autoplay=1",
+			//[4] Alan Silva - Luna Surface (005)
 			"https://www.youtube.com/embed/MfUdcVVpHoU?autoplay=1",
+			//[5] Steve Reich - New York Counterpoint (006)
+			"https://www.youtube.com/embed/e-9DIA9f42w?autoplay=1",
+			//[6] Kaoru Abe - No. 1 (007)
+			"https://www.youtube.com/embed/BWdMvfbNsfw?autoplay=1"
 			];
 
 			function randomNum(){
-				var randomNum = Math.floor((Math.random() * 5) + 1);
+				var randomNum = Math.floor((Math.random() * array.length) + 1);
 				return randomNum;
 			};
 
@@ -75,10 +84,10 @@
 				var number = randomNum();
 				$("#welcome").hide();
 				$("img", "#image").attr("src", "Images/00" + number+ ".jpg");
-				var elem = document.getElementById("#image");
-					elem.requestFullscreen();
-  					elem.msRequestFullscreen();
-  					elem.webkitRequestFullscreen();
+				// var elem = document.getElementById("#image");
+				// 	elem.requestFullscreen();
+  		// 			elem.msRequestFullscreen();
+  		// 			elem.webkitRequestFullscreen();
 				// $("iframe", "#video").attr("src", "https://www.youtube.com/embed/Lbt9DDolcag?autoplay=1");
 				$("#video iframe").remove();
 				$('<iframe></iframe>').attr("src", array[number - 1]).appendTo("#video");
